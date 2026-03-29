@@ -56,20 +56,6 @@
     .brand{
       display:flex;align-items:center;gap:12px;font-size:28px;font-weight:700;letter-spacing:.2px
     }
-    .brand-mark{
-      width:42px;height:42px;border-radius:14px;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      display:grid;place-items:center;
-      color:#fff;
-      box-shadow:0 10px 30px rgba(59,130,246,.25);
-      overflow:hidden;
-      flex-shrink:0;
-    }
-    .brand-mark svg{
-      width:24px;
-      height:24px;
-      display:block;
-    }
     .brand span:last-child{color:#dce8ff}
     .nav-links{
       display:flex;gap:22px;color:var(--muted);font-size:15px
@@ -269,9 +255,23 @@
     .mini-form{
       display:grid;gap:14px;margin-top:20px
     }
-    .fake-input{
-      padding:16px 18px;border-radius:14px;border:1px solid var(--line);
-      background:rgba(255,255,255,.03);color:#9fb0c8
+    .form-input,
+    .form-textarea{
+      width:100%;
+      padding:16px 18px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      outline:none;
+      font:inherit;
+    }
+    .form-input{
+      height:56px;
+    }
+    .form-textarea{
+      min-height:160px;
+      resize:vertical;
     }
 
     footer{padding:24px 0 54px}
@@ -311,11 +311,6 @@
   <nav class="nav">
     <div class="container nav-inner">
       <div class="brand">
-        <div class="brand-mark" aria-label="Wovenex logo">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M18 28 L32 72 L50 38 L68 72 L82 28" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
         <span>Wovenex</span>
       </div>
       <div class="nav-links">
@@ -660,10 +655,10 @@
         </p>
 
         <div class="mini-form">
-          <div class="fake-input">Full Name</div>
-          <div class="fake-input">Business Email</div>
-          <div class="fake-input">Company / Organization</div>
-          <div class="fake-input">Project Requirements</div>
+          <input class="form-input" type="text" />
+          <input class="form-input" type="email" />
+          <input class="form-input" type="text" />
+          <textarea class="form-textarea"></textarea>
           <a class="btn btn-secondary" href="mailto:contact@wovenex.online">Submit via Email</a>
         </div>
       </div>
@@ -675,11 +670,6 @@
       <div class="footer">
         <div>
           <div class="footer-brand">
-            <div class="brand-mark" style="width:38px;height:38px;border-radius:12px" aria-hidden="true">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 28 L32 72 L50 38 L68 72 L82 28" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
             <span>Wovenex</span>
           </div>
           <div class="footer-note">Official digital presence of Wovenex.</div>
