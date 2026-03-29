@@ -266,6 +266,10 @@
       outline:none;
       font:inherit;
     }
+    .form-input::placeholder,
+    .form-textarea::placeholder{
+      color:#9fb0c8;
+    }
     .form-input{
       height:56px;
     }
@@ -655,10 +659,10 @@
         </p>
 
         <div class="mini-form">
-          <input class="form-input" type="text" />
-          <input class="form-input" type="email" />
-          <input class="form-input" type="text" />
-          <textarea class="form-textarea"></textarea>
+          <input class="form-input" type="text" placeholder="Full Name" />
+          <input class="form-input" type="email" placeholder="Business Email" />
+          <input class="form-input" type="text" placeholder="Company / Organization" />
+          <textarea class="form-textarea" placeholder="Project Requirements"></textarea>
           <a class="btn btn-secondary" href="mailto:contact@wovenex.online">Submit via Email</a>
         </div>
       </div>
