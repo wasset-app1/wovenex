@@ -6,16 +6,487 @@
   <title>Wovenex | Digital Solutions</title>
   <meta
     name="description"
-    content="Wovenex is a digital solutions company delivering modern web experiences, business tools, scalable online products, and application development solutions."
+    content="Wovenex is a digital solutions company delivering modern web experiences, business tools, and scalable online products."
   />
   <style>
-    /* نفس الـ CSS بدون أي تغيير */
-    /* (اختصار عشان الرد مايبقاش ضخم زيادة - انسخ CSS من ملفك زي ما هو) */
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0c1a2d;
+      --card: rgba(12, 26, 45, 0.78);
+      --text: #eef4ff;
+      --muted: #a9b8d0;
+      --line: rgba(255,255,255,.08);
+      --primary: #3b82f6;
+      --primary-2: #60a5fa;
+      --white: #ffffff;
+      --shadow: 0 20px 50px rgba(0,0,0,.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(96,165,250,.12), transparent 24%),
+        linear-gradient(180deg, #06101d 0%, #081426 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(7, 17, 31, 0.7);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    .brand span {
+      color: var(--primary-2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(59,130,246,.28);
+    }
+
+    .hero {
+      padding: 84px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel,
+    .service-card,
+    .stat-card,
+    .about-card,
+    .contact-card,
+    .footer-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid rgba(96,165,250,.3);
+      border-radius: 999px;
+      color: #cfe2ff;
+      font-size: 14px;
+      margin-bottom: 20px;
+      background: rgba(59,130,246,.08);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 58px;
+      line-height: 1.05;
+      letter-spacing: -1.4px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.8;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      box-shadow: 0 12px 28px rgba(59,130,246,.26);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.02);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 30px;
+      color: #cbd7ea;
+      font-size: 14px;
+    }
+
+    .panel {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .panel-title {
+      font-size: 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin-bottom: 14px;
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .panel p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .mini-list {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-item {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.02);
+      color: #d9e7fb;
+      font-size: 15px;
+    }
+
+    .section {
+      padding: 24px 0 28px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 38px;
+      letter-spacing: -.8px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 680px;
+      line-height: 1.8;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 26px;
+    }
+
+    .service-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(59,130,246,.14);
+      color: #cfe2ff;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 12px;
+    }
+
+    .stat-card {
+      padding: 24px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .about-card,
+    .contact-card,
+    .footer-card {
+      padding: 30px;
+    }
+
+    .about-card h3,
+    .contact-card h3 {
+      margin: 0 0 14px;
+      font-size: 28px;
+    }
+
+    .about-card p,
+    .contact-card p,
+    .footer-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 16px;
+    }
+
+    .contact-list {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: #dbe7fb;
+      background: rgba(255,255,255,.02);
+    }
+
+    footer {
+      padding: 28px 0 50px;
+    }
+
+    .footer-card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .services,
+      .stats,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 44px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card,
+      .panel,
+      .service-card,
+      .about-card,
+      .contact-card,
+      .footer-card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .section-head h2 {
+        font-size: 30px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .nav-inner {
+        height: 68px;
+      }
+
+      .brand {
+        font-size: 24px;
+      }
+
+      .nav-cta {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- باقي الكود زي ما هو -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Woven<span>ex</span></div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#company">Company</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="mailto:contact@wovenex.online">Get in Touch</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="eyebrow">Established Digital Solutions Partner</div>
+        <h1>Building reliable digital products for modern businesses.</h1>
+        <p>
+          Wovenex delivers web experiences, business-focused digital solutions,
+          and scalable online platforms designed to support growth, credibility,
+          and long-term operational efficiency.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:contact@wovenex.online">Contact Our Team</a>
+          <a class="btn btn-secondary" href="#services">Explore Services</a>
+        </div>
+
+        <div class="hero-meta">
+          <div>Official Domain: wovenex.online</div>
+          <div>Business Email: contact@wovenex.online</div>
+          <div>Independent Digital Brand</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div>
+          <div class="panel-title">Company Profile</div>
+          <h3>Professional digital presence with a long-term vision.</h3>
+          <p>
+            Our approach combines clean execution, structured delivery,
+            and modern technology to help brands establish a stronger
+            online identity and dependable digital infrastructure.
+          </p>
+        </div>
+
+        <div class="mini-list">
+          <div class="mini-item">Business Websites & Landing Pages</div>
+          <div class="mini-item">Digital Branding & Presentation</div>
+          <div class="mini-item">Scalable Online Solutions</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="services">
     <div class="container">
@@ -56,23 +527,89 @@
             for operational efficiency and long-term usability.
           </p>
         </div>
-
-        <!-- الإضافة الجديدة -->
-        <div class="service-card">
-          <div class="service-num">04</div>
-          <h3>Application Development</h3>
-          <p>
-            Development of modern applications and general technical solutions
-            tailored to business needs, focusing on performance, scalability,
-            and usability.
-          </p>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- باقي الكود زي ما هو -->
+  <section class="section">
+    <div class="container">
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-num">Modern</div>
+          <div class="stat-label">Design Standards</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Business</div>
+          <div class="stat-label">Focused Delivery</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Scalable</div>
+          <div class="stat-label">Digital Approach</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Trusted</div>
+          <div class="stat-label">Brand Positioning</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="company">
+    <div class="container about-grid">
+      <div class="about-card">
+        <h3>About Wovenex</h3>
+        <p>
+          Wovenex is a digital solutions company dedicated to building
+          professional online experiences for brands, products, and modern
+          businesses. We emphasize clarity, visual quality, and dependable
+          execution to support brands that value long-term digital presence.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Our Approach</h3>
+        <p>
+          We believe professional presentation matters. From clean interface
+          design to structured business messaging, every detail is created to
+          support credibility, usability, and a stronger market presence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <h3>Contact</h3>
+        <p>
+          For business inquiries, digital collaboration, or project-related
+          communication, please reach out through our official business channel.
+        </p>
+
+        <div class="contact-list">
+          <div class="contact-item">Email: contact@wovenex.online</div>
+          <div class="contact-item">Website: wovenex.online</div>
+          <div class="contact-item">Availability: Online Business Communication</div>
+        </div>
+
+        <div class="hero-actions" style="margin-top:22px;">
+          <a class="btn btn-primary" href="mailto:contact@wovenex.online">Send Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <div>
+          <div class="footer-brand">Wovenex</div>
+          <div class="footer-note">Official digital presence of Wovenex.</div>
+        </div>
+        <div class="footer-note">© 2026 Wovenex. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
