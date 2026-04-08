@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wovenex | Support</title>
+  <style>
+    :root {
+      --bg: #050b18;
+      --bg2: #09152c;
+      --card: rgba(14, 28, 54, 0.92);
+      --card-border: rgba(110, 140, 190, 0.16);
+      --text: #eef4ff;
+      --muted: #b9c6dd;
+      --accent: #69a7ff;
+      --accent-2: #8ec5ff;
+      --button-dark: rgba(18, 30, 55, 0.95);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top center, rgba(42, 104, 198, 0.22), transparent 26%),
+        radial-gradient(circle at 20% 30%, rgba(31, 96, 186, 0.12), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, #04101f 100%);
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      background: rgba(4, 10, 22, 0.88);
+      border-bottom: 1px solid rgba(120, 150, 200, 0.08);
+    }
+
+    .topbar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: #f2f6ff;
+      text-decoration: none;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+      border: 1px solid rgba(120, 150, 200, 0.10);
+    }
+
+    .btn-dark {
+      color: #eaf2ff;
+      background: var(--button-dark);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, #5f97ff, #6fb6ff);
+      box-shadow: 0 10px 30px rgba(70, 130, 255, 0.20);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.97;
+    }
+
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 34px 28px 60px;
+    }
+
+    .hero-card {
+      width: 100%;
+      background: linear-gradient(180deg, rgba(10, 21, 43, 0.95), rgba(8, 19, 38, 0.95));
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(110, 160, 255, 0.22);
+      color: #dbe9ff;
+      background: rgba(40, 84, 152, 0.18);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      margin: 0 0 14px;
+      font-size: 58px;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-text {
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .side-card,
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.16);
+    }
+
+    .side-card {
+      padding: 18px;
+      position: sticky;
+      top: 92px;
+    }
+
+    .side-title {
+      margin: 2px 0 14px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #f4f7ff;
+    }
+
+    .side-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .side-links a {
+      text-decoration: none;
+      color: #dde9ff;
+      border: 1px solid rgba(120, 150, 210, 0.12);
+      background: rgba(15, 26, 48, 0.72);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .side-links a:hover {
+      background: rgba(28, 46, 82, 0.88);
+      transform: translateX(2px);
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-card {
+      padding: 26px 24px;
+    }
+
+    .section-card h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.3;
+      color: #f4f8ff;
+    }
+
+    .section-card p,
+    .section-card li {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .section-card p + p,
+    .section-card ul {
+      margin-top: 12px;
+    }
+
+    .section-card ul {
+      padding-left: 24px;
+    }
+
+    .contact-line {
+      color: #eef5ff;
+      font-weight: 700;
+      margin-top: 10px !important;
+    }
+
+    .footer-wrap {
+      margin-top: 26px;
+      background: rgba(10, 22, 42, 0.92);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 24px 26px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 980px) {
+      .hero-title {
+        font-size: 44px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner,
+      .page {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero-card,
+      .section-card,
+      .side-card,
+      .footer-wrap {
+        border-radius: 20px;
+      }
+
+      .hero-card {
+        padding: 24px 18px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+      }
+
+      .hero-text,
+      .section-card p,
+      .section-card li {
+        font-size: 15px;
+      }
+
+      .btn {
+        min-height: 40px;
+        padding: 0 14px;
+        font-size: 14px;
+      }
+
+      .top-actions {
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">Wovenex</a>
+      <div class="top-actions">
+        <a class="btn btn-dark" href="/">Back to Home</a>
+        <a class="btn btn-primary" href="mailto:contact@wovenex.online">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero-card">
+      <div class="eyebrow">Wovenex Support</div>
+      <h1 class="hero-title">Support</h1>
+      <p class="hero-text">
+        Wovenex provides support for its websites, applications, and digital services
+        through official communication channels for technical, business, and service-related inquiries.
+      </p>
+    </section>
+
+    <section class="content-grid">
+      <aside class="side-card">
+        <div class="side-title">Support Sections</div>
+        <nav class="side-links">
+          <a href="#support-scope">Support Scope</a>
+          <a href="#support-channels">Support Channels</a>
+          <a href="#response-approach">Response Approach</a>
+          <a href="#information-to-include">Information to Include</a>
+          <a href="#important-notes">Important Notes</a>
+          <a href="#contact-information">Contact Information</a>
+        </nav>
+      </aside>
+
+      <div class="sections">
+        <section class="section-card" id="support-scope">
+          <h2>1. Support Scope</h2>
+          <p>Users may contact Wovenex for:</p>
+          <ul>
+            <li>General support inquiries</li>
+            <li>Technical assistance</li>
+            <li>Business-related communication</li>
+            <li>Service clarification</li>
+            <li>Privacy-related questions</li>
+            <li>Account-related requests</li>
+          </ul>
+        </section>
+
+        <section class="section-card" id="support-channels">
+          <h2>2. Support Channels</h2>
+          <p class="contact-line">Official Email: contact@wovenex.online</p>
+          <p>Official Website: https://wovenex.online</p>
+        </section>
+
+        <section class="section-card" id="response-approach">
+          <h2>3. Response Approach</h2>
+          <p>
+            Wovenex reviews requests within a reasonable time based on the nature,
+            complexity, and priority of the inquiry. Response times may vary depending on
+            operational workload, technical investigation needs, and business hours.
+          </p>
+        </section>
+
+        <section class="section-card" id="information-to-include">
+          <h2>4. Information to Include</h2>
+          <p>To help us process your request efficiently, please include:</p>
+          <ul>
+            <li>Your full name</li>
+            <li>Your contact email</li>
+            <li>Company or organization name, if applicable</li>
+            <li>The name of the application or service</li>
+            <li>A clear description of the issue or request</li>
+          </ul>
+        </section>
+
+        <section class="section-card" id="important-notes">
+          <h2>5. Important Notes</h2>
+          <p>
+            Wovenex may request additional information where reasonably necessary to verify
+            a request, investigate an issue, protect service security, or comply with legal obligations.
+          </p>
+        </section>
+
+        <section class="section-card" id="contact-information">
+          <h2>6. Contact Information</h2>
+          <p>Company Name: Wovenex</p>
+          <p class="contact-line">Official Email: contact@wovenex.online</p>
+          <p>Official Website: https://wovenex.online</p>
+        </section>
+      </div>
+    </section>
+
+    <div class="footer-wrap">
+      <div class="footer">
+        <div>
+          <div class="footer-brand">Wovenex</div>
+          <div class="footer-note">Official support page of Wovenex.</div>
+        </div>
+        <div class="footer-note">© 2026 Wovenex. All rights reserved.</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
