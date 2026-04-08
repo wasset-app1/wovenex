@@ -280,9 +280,20 @@
 
     footer{padding:24px 0 54px}
     .footer{
-      padding:24px 28px;border-radius:22px;background:var(--card);border:1px solid var(--line);
-      display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:var(--shadow)
-    }
+  padding:24px 28px;
+  border-radius:22px;
+  background:var(--card);
+  border:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center; /* 👈 ضيف دي بس */
+  gap:16px;
+  flex-wrap:wrap;
+  box-shadow:var(--shadow)
+}
+    .footer-note{
+  margin:0;
+}
     .footer-brand{
       display:flex;align-items:center;gap:12px;font-size:24px;font-weight:700
     }
