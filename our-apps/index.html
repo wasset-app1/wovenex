@@ -1,45 +1,84 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Apps - Wovenex</title>
 
-@section('content')
-<section class="section">
+  <!-- نفس ملفاتك -->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">Wovenex</div>
+
+      <div class="nav-links">
+        <a href="/#services">Services</a>
+        <a href="/#capabilities">Capabilities</a>
+        <a href="/#company">Company</a>
+        <a href="/#process">Process</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/support/">Support</a>
+        <a href="/#contact">Contact</a>
+        <a href="/our-apps" class="active">Our Apps</a>
+      </div>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="mailto:contact@wovenex.online">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION -->
+  <section class="section">
     <div class="container">
 
-        <div style="text-align:center; margin-bottom:50px;">
-            <span class="badge">Our Apps</span>
-            <h1>Our Applications</h1>
-            <p>Explore the applications developed and managed by Wovenex.</p>
+      <div style="text-align:center; margin-bottom:60px;">
+        <span class="badge">Our Apps</span>
+        <h1>Our Applications</h1>
+        <p>Explore the applications developed and managed by Wovenex.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px;">
+
+        <!-- X SHOP -->
+        <div class="card" style="padding:25px;">
+          <h3>X Shop</h3>
+          <p>Online shopping and delivery platform.</p>
+
+          <div style="margin-top:20px; display:flex; flex-direction:column; gap:12px;">
+            <a href="#" class="btn">Demo</a>
+            <a href="/terms/" class="btn">Terms & Conditions</a>
+            <a href="/privacy-policy/" class="btn">Privacy Policy</a>
+            <a href="/delete-account/" class="btn">Delete Account</a>
+          </div>
         </div>
 
-        <div class="apps-grid">
-
-            <!-- X Shop -->
-            <div class="app-card">
-                <h3>X Shop</h3>
-                <p>Online shopping and delivery platform.</p>
-
-                <div class="app-links">
-                    <a href="/apps/x-shop/demo">Demo</a>
-                    <a href="/apps/x-shop/terms">Terms & Conditions</a>
-                    <a href="/apps/x-shop/privacy">Privacy Policy</a>
-                    <a href="/apps/x-shop/delete-account">Delete Account</a>
-                </div>
-            </div>
-
-            <!-- X Ride -->
-            <div class="app-card">
-                <h3>X Ride</h3>
-                <p>Ride-hailing platform.</p>
-
-                <div class="app-links">
-                    <a href="/apps/x-ride/demo">Demo</a>
-                    <a href="/apps/x-ride/terms">Terms & Conditions</a>
-                    <a href="/apps/x-ride/privacy">Privacy Policy</a>
-                    <a href="/apps/x-ride/delete-account">Delete Account</a>
-                </div>
-            </div>
-
-        </div>
+      </div>
 
     </div>
-</section>
-@endsection
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer">
+        <div>
+          <div class="footer-brand">
+            <span>Wovenex</span>
+          </div>
+          <div class="footer-note">Official digital presence of Wovenex.</div>
+        </div>
+        <div class="footer-note">
+          © 2026 Wovenex. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
